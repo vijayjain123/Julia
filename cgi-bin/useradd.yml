@@ -1,0 +1,7 @@
+- hosts: localhost
+  tasks:
+    - user:
+        name: "{{ user }}"
+        password: "{{ upass }}"
+        state: present
+        group: root

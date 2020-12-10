@@ -1,0 +1,22 @@
+- hosts: all
+  tasks:
+   - name: "install httpd pppp"
+     package: 
+        name: httpd  
+        state: present
+   - name:  "copy  file"
+     copy:
+        src: "/var/www/html/index.html"
+        dest: "/var/www/html"
+   - name: "start the service"
+     service:
+        name: httpd
+        state: restarted
+        enabled: yes
+   - name: "stop firewall for port no 80"
+     firewalld:  
+        state: enabled
+        port: "80/tcp"
+        immediate: yes
+        permanent: yes
+

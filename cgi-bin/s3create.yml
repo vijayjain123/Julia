@@ -1,0 +1,16 @@
+- hosts: localhost
+  tasks:
+      - pip:
+            name: boto3
+            state: present
+      - pip:
+            name: botocore
+            state: present
+      - name: create an empty bucket
+        aws_s3: 
+            aws_access_key: "{{ akey }}"
+            aws_secret_key: "{{ skey }}"
+            region: "ap-south-1"
+            bucket:  "{{ bucket }}"
+            mode: create
+            permission: public-read

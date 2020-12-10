@@ -1,0 +1,26 @@
+- hosts: localhost  
+  tasks:
+    - name: docker install
+      package:
+        name: docker-ce
+        state: present
+    - name: start service
+      service:
+        name: docker
+        state: restarted
+    - pip:
+        name: docker-py
+        state: present
+    - name: create a data container
+      docker_container:
+        name:  "{{ docname}}"
+        image: "{{ img}}"
+        volumes: 
+           - /data
+    - name: restart a container 
+      docker_container:
+        name:  "{{ docname}}"
+        image: "{{ img }}"
+        state: started
+        restart: yes
+        

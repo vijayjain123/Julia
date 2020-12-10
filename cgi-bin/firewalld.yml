@@ -1,0 +1,7 @@
+- hosts: all
+  tasks:
+    - firewalld:
+       state: enabled
+       port: "80/tcp"
+       immediate: yes
+       permanent: yes

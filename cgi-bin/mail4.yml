@@ -1,0 +1,12 @@
+- hosts: localhost 
+  tasks:
+    - name: ansible
+      mail:
+        host: "smtp.gmail.com"
+        port:  587
+        username: "{{ username }}"
+        password: "{{ password }}" 
+        to: "{{ recipient }}"
+        subject: "{{ subject }}"
+        
+   

@@ -1,0 +1,9 @@
+- hosts: localhost
+  tasks: 
+      - ec2_vol: 
+          aws_access_key: "{{ akey }}"
+          aws_secret_key: "{{ skey }}"
+          region: "ap-south-1"
+          instance: "i-0ae4e9455a77f5fb6" 
+          volume_size: "{{ vol }}"
+          device_name: "sde"

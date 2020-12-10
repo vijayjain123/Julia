@@ -1,0 +1,12 @@
+- hosts: localhost
+  tasks:
+   - parted:
+       device: "{{ drivename }}"
+       number: 1
+       state: present
+       part_end: "{{ size }}"
+   - lvol:
+       vg: "myvg"
+       lv: "mylv"
+       size: "{{ size }}"
+

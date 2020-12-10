@@ -1,0 +1,8 @@
+- hosts: all
+  tasks:
+   - parted:
+       device: "{{ drivename }}"
+       number: 1
+       state: present
+       part_end: ""
+   
